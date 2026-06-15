@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morocco MedShelf</title>
+    <link rel="preconnect" href="https://medicament.ma" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Moroccan medication browser</p>
+          <h1>Browse Morocco's medicine catalog, fast.</h1>
+          <p class="hero-copy">
+            Search the live Moroccan catalog, skim the full grid, then open any med for its image, description, price, and tags.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <label class="search-box" for="searchInput">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Type a med name, tag, or note..." />
+          </label>
+          <div class="status-row">
+            <span id="statusPill" class="status-pill">Loading catalog...</span>
+            <button id="clearSearch" class="ghost-button" type="button">Clear</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="overviewScreen" class="screen active" aria-label="Medication grid">
+        <div class="screen-topline">
+          <p id="resultCount" class="result-count">Fetching Moroccan medications...</p>
+          <p class="hint">Tap a card to open the second screen.</p>
+        </div>
+        <div id="medGrid" class="med-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="detailScreen" class="screen" aria-label="Medication details">
+        <button id="backButton" class="back-button" type="button">← Back to grid</button>
+        <article id="detailCard" class="detail-card"></article>
+      </section>
+    </main>
+
+    <template id="medCardTemplate">
+      <article class="med-card">
+        <img class="med-image" alt="" />
+        <div class="med-body">
+          <div class="med-header">
+            <h2></h2>
+            <span class="price-chip"></span>
+          </div>
+          <p class="med-description"></p>
+          <div class="tag-row"></div>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
